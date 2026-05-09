@@ -25,7 +25,7 @@ Libraries/My_Test/Test_Download/1.0.0.0/Test_Download.compiled-library
 Depois do deploy, a URL fica:
 
 ```text
-https://<seu-servico>.onrender.com/My_Test/Test_Download/1.0.0.0/Test_Download.compiled-library
+https://<seu-servico>.onrender.com/Libs/My_Test/Test_Download/1.0.0.0/Test_Download.compiled-library
 ```
 
 Para devices:
@@ -38,9 +38,10 @@ Cada pasta tambem recebe um arquivo `index` com uma lista simples das pastas e a
 
 ```text
 https://<seu-servico>.onrender.com/index
-https://<seu-servico>.onrender.com/My_Test/index
-https://<seu-servico>.onrender.com/My_Test/Test_Download/index
-https://<seu-servico>.onrender.com/My_Test/Test_Download/1.0.0.0/index
+https://<seu-servico>.onrender.com/Libs/index
+https://<seu-servico>.onrender.com/Libs/My_Test/index
+https://<seu-servico>.onrender.com/Libs/My_Test/Test_Download/index
+https://<seu-servico>.onrender.com/Libs/My_Test/Test_Download/1.0.0.0/index
 https://<seu-servico>.onrender.com/Devices/index
 https://<seu-servico>.onrender.com/Devices/4096/index
 https://<seu-servico>.onrender.com/Devices/4096/1799%200001/index
@@ -63,8 +64,9 @@ Formato do `index`:
 
 O arquivo `render.yaml` tambem permite criar o servico via Blueprint.
 
-Durante o build, o container remove os arquivos padrao do Nginx e publica somente o conteudo de `Libraries`.
-O conteudo de `Devices` tambem e publicado dentro de `/Devices`.
+Durante o build, o container remove os arquivos padrao do Nginx e publica somente o conteudo do repositorio.
+O conteudo de `Libraries` e publicado dentro de `/Libs`.
+O conteudo de `Devices` e publicado dentro de `/Devices`.
 
 ## Teste local
 
@@ -88,5 +90,5 @@ docker run --rm -p 10000:10000 -e PORT=10000 codesys-library-repository
 Abra:
 
 ```text
-http://localhost:10000/My_Test/Test_Download/1.0.0.0/Test_Download.compiled-library
+http://localhost:10000/Libs/My_Test/Test_Download/1.0.0.0/Test_Download.compiled-library
 ```
