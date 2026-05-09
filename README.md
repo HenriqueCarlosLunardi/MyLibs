@@ -10,6 +10,12 @@ Coloque os arquivos dentro de `Libraries` seguindo o formato:
 Libraries/<vendor>/<lib>/<version>/<file>
 ```
 
+Coloque os devices dentro de `Devices` seguindo o formato usado pelo repositorio de devices:
+
+```text
+Devices/<vendor-id>/<device-id>/<version>/<file>
+```
+
 Exemplo:
 
 ```text
@@ -22,6 +28,12 @@ Depois do deploy, a URL fica:
 https://<seu-servico>.onrender.com/My_Test/Test_Download/1.0.0.0/Test_Download.compiled-library
 ```
 
+Para devices:
+
+```text
+https://<seu-servico>.onrender.com/Devices/4096/1799%200001/1.3.0.3/device.xml
+```
+
 Cada pasta tambem recebe um arquivo `index` com uma lista simples das pastas e arquivos disponiveis naquele nivel, acessivel diretamente pela URL:
 
 ```text
@@ -29,6 +41,10 @@ https://<seu-servico>.onrender.com/index
 https://<seu-servico>.onrender.com/My_Test/index
 https://<seu-servico>.onrender.com/My_Test/Test_Download/index
 https://<seu-servico>.onrender.com/My_Test/Test_Download/1.0.0.0/index
+https://<seu-servico>.onrender.com/Devices/index
+https://<seu-servico>.onrender.com/Devices/4096/index
+https://<seu-servico>.onrender.com/Devices/4096/1799%200001/index
+https://<seu-servico>.onrender.com/Devices/4096/1799%200001/1.3.0.3/index
 ```
 
 Formato do `index`:
@@ -48,6 +64,7 @@ Formato do `index`:
 O arquivo `render.yaml` tambem permite criar o servico via Blueprint.
 
 Durante o build, o container remove os arquivos padrao do Nginx e publica somente o conteudo de `Libraries`.
+O conteudo de `Devices` tambem e publicado dentro de `/Devices`.
 
 ## Teste local
 
